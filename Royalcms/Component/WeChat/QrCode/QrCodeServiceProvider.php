@@ -21,7 +21,7 @@ class QrCodeServiceProvider extends ServiceProvider
     {
         $wechat = $this->royalcms['wechat'];
         
-        $wechat->bindShared('qrcode', function($wechat)
+        $wechat->singleton('qrcode', function($wechat)
         {
             return new QrCode($wechat['access_token']);
         });
